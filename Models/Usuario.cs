@@ -1,15 +1,13 @@
 namespace TPs.Models;
 public class Usuario
 {
-public string NombreUsuario{get; set;}
-public string Contraseña {get;set;}
-public string Nombre {get;set;}
-public string Apellido {get; set;}
-public string TipoDeUsuario{get;set;}
+public string nombreUsuario{get; set;}
+public string contraseña {get;set;}
+public string nombre {get;set;}
+public string apellido {get; set;}
+public string tipoUsuario{get;set;}
 
 public Usuario()
 {
     
 }
-}
-
