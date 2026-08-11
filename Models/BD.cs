@@ -1,6 +1,6 @@
 using Microsoft.Data.SqlClient;
 using Dapper;
-// Hecho con copilot
+// Hecho con copilot, con modificaciones nuestras.
 namespace TPs.Models;
 
 public class BD
