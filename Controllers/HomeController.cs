@@ -18,8 +18,49 @@ public class HomeController : Controller
         return View();
     }
 
+    [HttpPost]
+    public IActionResult RegistrarUsuario(Usuario usuario)
+    {
+        HttpContext.Session.SetString("nombreUsuario", usuario.nombreUsuario ?? "");
+        HttpContext.Session.SetString("nombre", usuario.nombre ?? "");
+        HttpContext.Session.SetString("apellido", usuario.apellido ?? "");
+        HttpContext.Session.SetString("contraseña", usuario.contraseña ?? "");
+        HttpContext.Session.SetString("tipoUsuario", usuario.tipoUsuario ?? "");
+
+        return RedirectToAction("Bienvenida");
+    }
+
+    public IActionResult Bienvenida()
+    {
+        var nombreUsuario = HttpContext.Session.GetString("nombreUsuario");
+        var nombre = HttpContext.Session.GetString("nombre");
+        var apellido = HttpContext.Session.GetString("apellido");
+        var contraseña = HttpContext.Session.GetString("contraseña");
+        var tipoUsuario = HttpContext.Session.GetString("tipoUsuario");
+
+        ViewData["nombreUsuario"] = nombreUsuario;
+        ViewData["nombre"] = nombre;
+        ViewData["apellido"] = apellido;
+        ViewData["contraseña"] = contraseña;
+        ViewData["tipoUsuario"] = tipoUsuario;
+
+        return View();
+    }
+
     public IActionResult Privacy()
     {
+        var nombreUsuario = HttpContext.Session.GetString("nombreUsuario");
+        var nombre = HttpContext.Session.GetString("nombre");
+        var apellido = HttpContext.Session.GetString("apellido");
+        var contraseña = HttpContext.Session.GetString("contraseña");
+        var tipoUsuario = HttpContext.Session.GetString("tipoUsuario");
+
+        ViewData["nombreUsuario"] = nombreUsuario;
+        ViewData["nombre"] = nombre;
+        ViewData["apellido"] = apellido;
+        ViewData["contraseña"] = contraseña;
+        ViewData["tipoUsuario"] = tipoUsuario;
+
         return View();
     }
 
