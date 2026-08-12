@@ -1,0 +1,65 @@
+@{
+    ViewData["Title"] = "Bienvenida";
+}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <h1>¡Bienvenido @ViewData["nombre"]!</h1>
+            <hr>
+            <div class="alert alert-info">
+                <h3>Datos registrados:</h3>
+                
+                @if (!string.IsNullOrEmpty((string?)ViewData["nombreUsuario"]))
+                {
+                    <div class="row mb-3">
+                        <div class="col-sm-4">
+                            <strong>Nombre de Usuario:</strong>
+                        </div>
+                        <div class="col-sm-8">
+                            @ViewData["nombreUsuario"]
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-sm-4">
+                            <strong>Nombre:</strong>
+                        </div>
+                        <div class="col-sm-8">
+                            @ViewData["nombre"]
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-sm-4">
+                            <strong>Apellido:</strong>
+                        </div>
+                        <div class="col-sm-8">
+                            @ViewData["apellido"]
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-sm-4">
+                            <strong>Tipo de Usuario:</strong>
+                        </div>
+                        <div class="col-sm-8">
+                            @ViewData["tipoUsuario"]
+                        </div>
+                    </div>
+
+                    <hr>
+                    <a href="@Url.Action("Index")" class="btn btn-secondary">
+                        Volver al Formulario
+                    </a>
+                }
+                else
+                {
+                    <div class="alert alert-warning">
+                        No hay datos guardados en sesión. Por favor <a href="@Url.Action("Index")">completa el formulario</a>.
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
