@@ -26,40 +26,46 @@ public class HomeController : Controller
         HttpContext.Session.SetString("apellido", usuario.apellido ?? "");
         HttpContext.Session.SetString("contraseña", usuario.contraseña ?? "");
         HttpContext.Session.SetString("tipoUsuario", usuario.tipoUsuario ?? "");
-
         return RedirectToAction("Bienvenida");
     }
 
     public IActionResult Bienvenida()
     {
-        var nombreUsuario = HttpContext.Session.GetString("nombreUsuario");
-        var nombre = HttpContext.Session.GetString("nombre");
-        var apellido = HttpContext.Session.GetString("apellido");
-        var contraseña = HttpContext.Session.GetString("contraseña");
-        var tipoUsuario = HttpContext.Session.GetString("tipoUsuario");
-
-        ViewData["nombreUsuario"] = nombreUsuario;
-        ViewData["nombre"] = nombre;
-        ViewData["apellido"] = apellido;
-        ViewData["contraseña"] = contraseña;
-        ViewData["tipoUsuario"] = tipoUsuario;
+        var usuario = new Usuario
+        {
+            nombreUsuario = HttpContext.Session.GetString("nombreUsuario") ?? string.Empty,
+            nombre = HttpContext.Session.GetString("nombre") ?? string.Empty,
+            apellido = HttpContext.Session.GetString("apellido") ?? string.Empty,
+            contraseña = HttpContext.Session.GetString("contraseña") ?? string.Empty,
+            tipoUsuario = HttpContext.Session.GetString("tipoUsuario") ?? string.Empty
+        };
+        ViewBag.usuario = usuario;
+        ViewBag.nombreUsuario = usuario.nombreUsuario;
+        ViewBag.nombre = usuario.nombre;
+        ViewBag.apellido = usuario.apellido;
+        ViewBag.contraseña = usuario.contraseña;
+        ViewBag.tipoUsuario = usuario.tipoUsuario;
 
         return View();
     }
 
     public IActionResult Privacy()
     {
-        var nombreUsuario = HttpContext.Session.GetString("nombreUsuario");
-        var nombre = HttpContext.Session.GetString("nombre");
-        var apellido = HttpContext.Session.GetString("apellido");
-        var contraseña = HttpContext.Session.GetString("contraseña");
-        var tipoUsuario = HttpContext.Session.GetString("tipoUsuario");
+        var usuario = new Usuario
+        {
+            nombreUsuario = HttpContext.Session.GetString("nombreUsuario") ?? string.Empty,
+            nombre = HttpContext.Session.GetString("nombre") ?? string.Empty,
+            apellido = HttpContext.Session.GetString("apellido") ?? string.Empty,
+            contraseña = HttpContext.Session.GetString("contraseña") ?? string.Empty,
+            tipoUsuario = HttpContext.Session.GetString("tipoUsuario") ?? string.Empty
+        };
 
-        ViewData["nombreUsuario"] = nombreUsuario;
-        ViewData["nombre"] = nombre;
-        ViewData["apellido"] = apellido;
-        ViewData["contraseña"] = contraseña;
-        ViewData["tipoUsuario"] = tipoUsuario;
+        ViewBag.usuario = usuario;
+        ViewBag.nombreUsuario = usuario.nombreUsuario;
+        ViewBag.nombre = usuario.nombre;
+        ViewBag.apellido = usuario.apellido;
+        ViewBag.contraseña = usuario.contraseña;
+        ViewBag.tipoUsuario = usuario.tipoUsuario;
 
         return View();
     }
