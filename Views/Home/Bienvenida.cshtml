@@ -1,11 +1,13 @@
 @{
-    ViewData["Title"] = "Bienvenida";
+    ViewBag.Title = "Bienvenida";
 }
 <header>
     <nav>
         <ul>
-            <li><a href="">Cartelera</a></li>
-            <li><a class="Activo" href="">Promociones</a></li>
+            <li><a href="">Pagina principal</a></li>
+            <li><a href="">Usuario</a></li>
+            <li><a class="Activo" href="">Cartelera</a></li>
+            <li><a href="">Promociones</a></li>
             <li><a href="">Sedes</a></li>
             <li><a href="">Sobre nosotros</a></li>
         </ul>
@@ -15,16 +17,16 @@
 <div class="container py-3">
     <div class="row">
         <div class="col-md-10 offset-md-1">
-            @if (!string.IsNullOrEmpty((string?)ViewData["nombreUsuario"]))
+            @if (!string.IsNullOrEmpty((string?)ViewBag.nombreUsuario))
             {
                 <div class="alert alert-info mb-4">
-                    <div class="d-flex justify-content-between align-items-center flex-wrap">
-                        <div>
-                            <h5 class="mb-0">¡Bienvenido @ViewData["nombre"]!</h5>
-                            <small class="text-muted">
-                                @ViewData["nombreUsuario"] (@ViewData["tipoUsuario"])
-                            </small>
-                        </div>
+                    <h1 class="mb-3">¡Bienvenido @ViewBag.nombre!</h1>
+                    <div>
+                        <p><strong>Nombre de Usuario:</strong> @ViewBag.nombreUsuario</p>
+                        <p><strong>Nombre:</strong> @ViewBag.nombre</p>
+                        <p><strong>Apellido:</strong> @ViewBag.apellido</p>
+                        <p><strong>Contraseña:</strong> @ViewBag.contraseña</p>
+                        <p><strong>Tipo de Usuario:</strong> @ViewBag.tipoUsuario</p>
                     </div>
                 </div>
             }
@@ -71,3 +73,9 @@
         </div>
     </section>
 </main>
+<footer class="bg-dark text-white mt-5 py-4">
+    <div class="container text-center">
+        <p>&copy; 2026 Cine Sisro. Todos los derechos reservados.</p>
+        <p class="mb-0"><small>Contacto: info@cine.com | Tel: +34 912 345 678</small></p>
+    </div>
+</footer>
