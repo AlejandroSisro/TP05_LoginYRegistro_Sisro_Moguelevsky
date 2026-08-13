@@ -33,7 +33,7 @@ public class BD
             string query = @"SELECT * FROM Usuario 
                              WHERE nombreUsuario = @pNombreUsuario 
                              AND contraseña = @pContraseña";
-            var usuario = connection.QueryFirstOrDefault<Usuario>(query, new { pNombreUsuario = nombreUsuario, pContraseña = contraseña });
+            Usuario usuario = connection.QueryFirstOrDefault<Usuario>(query, new { pNombreUsuario = nombreUsuario, pContraseña = contraseña });
             return usuario != null;
         }
     }
