@@ -31,7 +31,7 @@ public class HomeController : Controller
 
     public IActionResult Bienvenida()
     {
-        var usuario = new Usuario
+        Usuario usuario = new Usuario
         {
             nombreUsuario = HttpContext.Session.GetString("nombreUsuario") ?? string.Empty,
             nombre = HttpContext.Session.GetString("nombre") ?? string.Empty,
@@ -51,7 +51,7 @@ public class HomeController : Controller
 
     public IActionResult Privacy()
     {
-        var usuario = new Usuario
+        Usuario usuario = new Usuario
         {
             nombreUsuario = HttpContext.Session.GetString("nombreUsuario") ?? string.Empty,
             nombre = HttpContext.Session.GetString("nombre") ?? string.Empty,
