@@ -116,6 +116,9 @@ main {
 }
 form { background-color: rgba(255,255,255,0.03); padding: 1.2rem; border-radius: 6px; border-left: 4px solid var(--cine-bordo); }
 input[type="text"], input[type="email"], input[type="password"] { background-color: rgba(255,255,255,0.02); border: 1px solid var(--cine-gris-oscuro); color: var(--cine-gris); padding: 0.6rem; margin-bottom: 0.8rem; border-radius: 4px; width: 100%; max-width: 420px; }
+select { background-color: rgba(255,255,255,0.02); border: 1px solid var(--cine-gris-oscuro); color: var(--cine-gris); padding: 0.6rem; margin-bottom: 0.8rem; border-radius: 4px; width: 100%; max-width: 420px; -webkit-appearance: none; -moz-appearance: none; appearance: none; }
+select:focus { border-color: var(--cine-dorado); outline: none; }
+select option { background-color: rgba(20,15,16,1); color: var(--cine-gris); }
 input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus { border-color: var(--cine-dorado); outline: none; }
 input[type="text"]::placeholder {
   color: rgba(208, 208, 208, 0.6);
